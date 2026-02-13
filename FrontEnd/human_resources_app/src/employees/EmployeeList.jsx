@@ -1,4 +1,30 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 export default function EmployeeList() {
+
+
+    // conection to the backend
+    const baseUrl = "http://localhost:8080/api/employees";
+
+    const [employee, setEmployee] = useState([]);
+
+    useEffect(() => {
+        loadEmployees();
+    }, []);
+
+    const loadEmployees = async () => {
+        try{
+            const result = await axios.get(baseUrl);
+            console.log("Result: ");
+            console.log(result.data);
+            setEmployee(result.data);
+        }
+        catch(error){
+            console.error("There was an error loading: ", error);
+        }
+    }
+
     return (
         <div class="container">
             <div className="container text-center" style={{margin: "30px"}}>
