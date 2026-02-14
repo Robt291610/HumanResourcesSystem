@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 export default function navigation() {
     return (
@@ -14,7 +15,7 @@ export default function navigation() {
                                 <a className="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link active" href="/add">Add Employee</a>
+                                <Link className="nav-link active" to="/add">Add Employee</Link>
                             </li>
                         </ul>
                     </div>
